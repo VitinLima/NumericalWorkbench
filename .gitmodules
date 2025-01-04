@@ -1,0 +1,6 @@
+[submodule "ThermalConductivitySimulation"]
+	path = ThermalConductivitySimulation
+	url = https://github.com/VitinLima/ThermalConductivitySimulation.git
+[submodule "StaticStructural/MechanicalFiniteElementMethod"]
+	path = StaticStructural/MechanicalFiniteElementMethod
+	url = https://github.com/VitinLima/MechanicalFiniteElementMethod.git
