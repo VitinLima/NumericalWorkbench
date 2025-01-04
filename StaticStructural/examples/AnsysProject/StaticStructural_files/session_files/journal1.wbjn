@@ -1,0 +1,29 @@
+# encoding: utf-8
+# 2024 R2
+SetScriptVersion(Version="24.2.133")
+template1 = GetTemplate(TemplateName="Mesh")
+system1 = template1.CreateSystem()
+template2 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system2 = template2.CreateSystem()
+system2.Delete()
+geometryComponent1 = system1.GetComponent(Name="Geometry")
+system3 = template2.CreateSystem(
+    ComponentsToShare=[geometryComponent1],
+    Position="Right",
+    RelativeTo=system1)
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+Save(Overwrite=True)
+modelComponent1 = system3.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system3.GetContainer(ComponentName="Model")
+model1.Edit()
+Save(Overwrite=True)
+model1.Exit()
+Save(Overwrite=True)
+setup1 = system3.GetContainer(ComponentName="Setup")
+setup1.Edit()
+model1.Exit()
+Save(Overwrite=True)
